@@ -1,0 +1,16 @@
+{% from 'macros.html' import form_field%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {{form.csrf_token}}
+    {{form_field(form.photo)}}
+    {{form.submit}}
+</form>
+<img src="{{url_for('get_file',filename=filename)}}"/>
+
+</body>
+</html>

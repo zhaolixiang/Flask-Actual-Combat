@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>{{user.username}}'s Watchlist</title>
+    <link rel="icon" type="image/x-iccon"  href="{{url_for('static',filename='avatar.jpg')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}">
 </head>
 <body>
-
+<img src="{{url_for('static',filename='avatar.jpg')}}" width="50">
 <a href="{{url_for('index')}}">&larr; Return</a>
 <h2>{{user.username}}</h2>
 

@@ -1,7 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect, url_for
 from markupsafe import Markup
 
 app = Flask(__name__)
+app.secret_key='secret string'
 
 user = {
     'username': 'Grey Li',
@@ -79,6 +80,17 @@ def love(n):
 
 # app.jinja_env.tests['love'] = love
 # app.jinja_env.tests['baz'] = baz
+
+
+
+@app.route('/flash')
+def just_flash():
+    flash('I am flask,who is looking for me')
+    return redirect(url_for('index'))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('errors/404.html'),404
 
 if __name__ == '__main__':
     app.run()
